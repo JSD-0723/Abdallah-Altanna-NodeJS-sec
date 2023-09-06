@@ -1,0 +1,11 @@
+html 
+  head 
+    title Books
+  
+  body
+    h1 Books
+    ul 
+      each book in books
+   
+        li The id of the book: #[span(style={color: "red"}) #{book.id}] and the name of the book: #[a(href="/books/" + book.id, style={color: "red"}) #{book.name}] 
+  
