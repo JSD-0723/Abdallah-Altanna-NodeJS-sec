@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import path from 'path';
 
 import bookRoutes from './routes/bookRoutes.js';
-import notFoundMiddleware from './middlewares/notFound.js';
 
 const app = express();
 
@@ -17,7 +16,16 @@ app.get('/', (req, res) => {
 });
 
 app.use(bookRoutes);
-app.use(notFoundMiddleware);
+
+app.get('*', (req, res) => {
+  res
+    .status(404)
+    .render('404', {
+      title: `Page not found`,
+      url: '/books',
+      text: 'Go to books'
+    });
+});
 
 const port = process.env.PORT || 3000;
 

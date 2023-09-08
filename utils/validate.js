@@ -12,7 +12,7 @@ const validate = validations => {
       return next();
     }
 
-    res.status(400).json({ status: 'fail', errors: errors.array() });
+    res.status(400).render('add-book', { error: errors.array()[0].msg });
   };
 };
 

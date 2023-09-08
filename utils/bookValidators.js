@@ -5,6 +5,8 @@ const createBookValidator = [
     .exists()
     .isLength({ min: 3 })
     .withMessage('Name must be at least 3 characters long')
+    .isString()
+    .trim()
 ];
 
 export default createBookValidator;

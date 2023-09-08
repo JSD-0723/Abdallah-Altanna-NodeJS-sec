@@ -2,7 +2,8 @@ import express from 'express';
 import {
   getAllBooks,
   getBookDetails,
-  createBook
+  createBook,
+  getNewBookForm
 } from '../controllers/bookController.js';
 import validate from '../utils/validate.js';
 import createBookValidator from '../utils/bookValidators.js';
@@ -15,5 +16,6 @@ router
   .post(validate(createBookValidator), createBook);
 
 router.get('/books/:id', getBookDetails);
+router.get('/add-book', getNewBookForm);
 
 export default router;
